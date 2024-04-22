@@ -214,3 +214,24 @@ FETCH NEXT ROWS m ONLY
 
 --注意事項:FETCH NEXT一定要經過ORDER BY排序
 ```
+
+## 進階SQL語法
+
+## View檢視表
+
+`虛擬的將實體資料表結構隱藏起來`
+
+```sql
+CREATE VIEW schema_name.view_name[(column_name...)]
+WITH view_attribute
+AS
+SELECT column_name1
+WHERE condition
+WITH CHECK OPTION
+
+--ALTER VIEW:修改VIEW的屬性OR 先DROP後再新增
+
+--注意事項:
+-- 加密後的VIEW無法檢視其設計只能刪除OR整個修改，所以務必寫好文件
+-- 使用WITH CHECK OPTION後新增或修改不符條件將無法執行
+```
