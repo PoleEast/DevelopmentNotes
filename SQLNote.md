@@ -395,3 +395,7 @@ ALTER SEQUENCE sequence_name RESTART WITH value
 ```
 
 ## INDEX索引
+
+* 索引可以減少搜尋的時間，類似於二元搜尋樹
+* 叢集索引(Clustered Indexes):設定Primary key時會自動建立，主要用來定位資料的位置
+* 非叢集索引(NonClustered Indexes):定位叢集索引位置用，只用Unique條件約束欄位
