@@ -217,7 +217,9 @@ FETCH NEXT ROWS m ONLY
 
 ## 進階SQL語法
 
-## View檢視表
+### *以下許多功能會放在SEVER做了，使用上請注意*
+
+## VIEW檢視表
 
 `虛擬的將實體資料表結構隱藏起來`
 
@@ -235,3 +237,161 @@ WITH CHECK OPTION
 -- 加密後的VIEW無法檢視其設計只能刪除OR整個修改，所以務必寫好文件
 -- 使用WITH CHECK OPTION後新增或修改不符條件將無法執行
 ```
+
+## VARIABLE變數
+
+```SQL
+DECLARE @variable_name data_type
+SET @variable_name = value
+
+--@為區域變數
+--@@為痊癒變數
+```
+
+## 流程控制
+
+```SQL
+WHILE boolean_expression
+    IF
+        BEGIN
+            statement1
+            BREAK
+            statement2
+        END
+    ELSE
+        BEGIN
+            statement3
+            CONTINUE
+            statement4
+        END
+END
+
+--有多句陳述式藥用BEGIN...END包覆
+```
+
+## TRANSACTION交易
+
+`又稱事務，確保資料的一致性與完整性`
+
+### ACID
+
+* Atomicity(原子性)
+* Consistency(一致性)
+* Isolation(隔離性)
+* Durability(永久性)
+
+```sql
+--明顯交易模式
+EXPLICIT TRANSACTION
+BEGIN
+    statement1
+    COMMIT
+END
+--隱含交易模式
+SET IMPILICIT_TRANSACTIONS ON
+    statement1
+    COMMIT
+SET IMPILICIT_TRANSACTIONS OFF
+
+--注意事項:隱含交易模式如果沒關閉則永為隱含交易模式
+```
+
+## PROCEDURE預存程序
+
+`SQL版函式`
+
+```SQL
+CREATE PROCEDURE procedure_name
+@variable_name1 data_type, @variable_name2 data_type OUT 
+WITH procedure_option
+AS
+BEGIN
+    statement
+END
+
+DECLARE @variable_name3 data_type
+exec type_value, @variable_name3 out;
+
+--注意事項:
+--別使用sp開頭作為名稱，那是系統預設的預存程序
+```
+
+## TRIGGERS觸發
+
+`由系統自動執行沒有參數也沒有回傳值，此為過氣作法，現在主流是將其寫在SEVER中`
+
+* **DML TRIGGERS**:最常使用，資料表操作指令時觸發
+* **DDL TRIGGERS**:稽核或管理資料庫作業
+* **LOGON TRIGGERS**:登入或工作階段
+  
+```SQL
+CREATE TRIGGER trigger_name
+ON table_name
+WITH dml_trigger_option
+NOT FOR REPLICATION
+{FOR|AFTER|INSTEAD OF} INSERT, UPDATE, DELETE 
+AS
+BEGIN
+    statement
+END
+
+--刪除trigger
+DROP TRIGGER + trigger_name
+
+--注意事項:
+--再說一次此為過氣作法
+--使用太多邏輯複雜管理不易
+--務必寫清楚技術文件
+```
+
+## IN運算子
+
+`搭配WHERE可以用資料表來做比較`
+
+```SQL
+SELECT *
+FROM table_name
+WHERE column_name NOT IN condition
+```
+
+## CASE關鍵字
+
+`邏輯判斷用`
+
+```SQL
+CASE 
+    WHEN condition1 THEN statement1
+    WHEN condition2 THEN statement2
+ELSE
+    statement3
+END
+```
+
+## 集合運算
+
+`使用方式上與JOIN差不多，只是她是直的JOIN是橫的`
+
+* UNION:有重複只會顯示一筆，要全印請用UNION
+* INRERSECT:只印相同的資料
+* EXCEPT:自己剪掉對象
+
+## SEQUENCE順序
+
+`跨資料表運作，可以共用這個變數`
+
+```SQL
+CREATE SEQUENCE sequence_name
+AS data_type
+START WITH value
+INCREMENT BY value
+MINVALUE value
+MAXVALUE value
+
+--重設SEQUENCE值
+ALTER SEQUENCE sequence_name RESTART WITH value
+
+--注意事項:
+-- 部餐與交易
+```
+
+## INDEX索引
