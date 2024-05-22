@@ -839,3 +839,15 @@ tfoot {
 ```
 
 [CodePen 範例](https://codepen.io/prwwnaem-the-sasster/pen/NWVNaba)
+
+### Display 樣式
+
+`定義元素在網頁中的顯示方式`
+
+```css
+.block {
+  display: block;
+}
+```
+
+[CodePen 範例](https://codepen.io/prwwnaem-the-sasster/pen/PovNgoL)
