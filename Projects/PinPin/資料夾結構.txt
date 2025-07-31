@@ -1,0 +1,66 @@
+pinpin/
+├── pinpin_backend/
+│   ├── src/
+│   │   ├── common/
+│   │   │   ├── constants
+│   │   │   ├── decorators
+│   │   │   ├── exception
+│   │   │   ├── filters
+│   │   │   ├── guards
+│   │   │   ├── strategies
+│   │   │   └── utils
+│   │   ├── dtos
+│   │   ├── entities
+│   │   ├── interfaces
+│   │   ├── modules
+│   │   ├── repositories
+│   │   ├── app.module.ts
+│   │   └── main.ts
+│   ├── .env
+│   ├── .eslintrc.js
+│   ├── .gitignore
+│   ├── nest-cli.json
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── tsconfig.build.json
+│   └── tsconfig.json
+├── pinpin_frontend/
+│   ├── public
+│   ├── src/
+│   │   ├── assets
+│   │   ├── interfaces
+│   │   ├── components
+│   │   ├── plugins/
+│   │   │   ├── axios.ts
+│   │   │   ├── fontawesome.ts
+│   │   │   ├── iconify.ts
+│   │   │   ├── index.ts
+│   │   │   └── vuetify.ts
+│   │   ├── router
+│   │   ├── services
+│   │   ├── stores
+│   │   ├── utils
+│   │   ├── views
+│   │   ├── App.vue
+│   │   └── main.ts
+│   ├── env.d.ts
+│   ├── eslint.config.js
+│   ├── .gitignore
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── tsconfig.app.json
+│   ├── tsconfig.json
+│   ├── tsconfig.node.json
+│   ├── tsconfig.vitest.json
+│   ├── vitest.config.ts
+│   ├── vite.config.ts
+│   └── index.html
+└── pinpin_library/
+    ├── src/
+    │   ├── constants
+    │   ├── types
+    │   └── index.ts
+    ├── .gitignore
+    ├── package-lock.json
+    ├── package.json
+    └── tsconfig.json
