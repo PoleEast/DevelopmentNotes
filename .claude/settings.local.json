@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__anytype__API-list-spaces",
+      "mcp__anytype__API-list-objects",
+      "mcp__anytype__API-update-object",
+      "mcp__anytype__API-get-space",
+      "mcp__anytype__API-list-types",
+      "mcp__anytype__API-create-object",
+      "mcp__anytype__API-add-list-objects"
+    ],
+    "deny": []
+  }
+}
